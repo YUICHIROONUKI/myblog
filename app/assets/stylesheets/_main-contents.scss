@@ -1,0 +1,56 @@
+.main{
+	height: 100vh;
+	padding-top: 100px;
+	background-color: #FFFFDD;
+	overflow: scroll;
+	&__box {
+		margin: 50px 150px 0;
+		height: 70vh;
+		background-color: white;
+		border: 5px solid black;
+		&__topic {
+			height: 10vh;
+			border-bottom: 1px solid black;
+			line-height: 10vh;
+			text-align: center;
+			font-weight: bold;
+			font-size: 30px;
+		}
+		&__article {
+			overflow: scroll;
+			height: 45vh;
+			border-bottom: 5px solid black;
+			padding: 5vh 3vw;
+			word-break: break-all;
+			font-size: 20px;
+			letter-spacing: 3px;
+		}
+		&__function {
+			display: flex;
+			list-style: none;
+			background-color: gray;
+			height: calc(15vh - 10px);
+			color: white;
+			justify-content: flex-end;
+			line-height: calc(15vh - 10px);
+			font-weight: bold;
+			font-size: 25px;
+			&__show {
+				background-color: black;
+                width: 150px;
+                text-align: center;
+			}
+			&__edit {
+				background-color: black;
+				width: 150px;
+				text-align: center;
+				margin: 0 3px;
+			}
+			&__destroy {
+				background-color: black;
+				width: 150px;
+				text-align: center;
+			}
+		}
+	}
+}
