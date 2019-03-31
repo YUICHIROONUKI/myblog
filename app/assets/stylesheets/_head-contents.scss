@@ -1,3 +1,30 @@
 .header{
-	color: red;
+	height: 100px;
+	background-color: blue;
+	width: 100vw;
+	position: fixed;
+	&__user {
+		padding: 10px 20px;
+		display: flex;
+		height: 100%;
+		width: 100%;
+		justify-content: space-between;
+		line-height: 80px;
+		color: white;
+		font-weight: bold;
+		&__name {
+			font-size: 30px;
+			width: 300px;
+		}
+		&__logo {
+			font-size: 40px;
+			color: orange;
+		}
+		&__function {
+			display: flex;
+			justify-content: space-around;
+			width: 300px;
+			list-style: none;
+		}
+	}
 }
