@@ -1,0 +1,9 @@
+.main
+  .main__box
+    .main__box__topic
+      = @article.topic
+    .main__box__article
+      = @article.body
+    %ul.main__box__function
+      %li.main__box__function__show
+        = link_to 'back', root_path

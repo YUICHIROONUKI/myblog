@@ -1,5 +1,6 @@
 .header{
-	height: 100px;
+	z-index: 1;
+	height: 12vh;
 	background-color: blue;
 	width: 100vw;
 	position: fixed;
@@ -10,11 +11,11 @@
 		width: 100%;
 		justify-content: space-between;
 		line-height: 80px;
-		color: white;
 		font-weight: bold;
 		&__name {
 			font-size: 30px;
 			width: 300px;
+			color: white;
 		}
 		&__logo {
 			font-size: 40px;
@@ -25,6 +26,22 @@
 			justify-content: space-around;
 			width: 300px;
 			list-style: none;
+			font-size: 20px;
+			&__sign-in {
+				&__character {
+				color: white;
+			    }
+			}
+			&__sign-out {
+				&__character {
+					color: white;
+				}
+			}
+			&__new{
+				&__character {
+					color: white;
+				}
+			}
 		}
 	}
 }

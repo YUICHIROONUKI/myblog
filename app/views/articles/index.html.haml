@@ -1,3 +1,5 @@
+= render partial: 'articles/flash'
+
 .header
   .header__user
     .header__user__name
@@ -6,34 +8,22 @@
       myblog
     %ul.header__user__function
       %li.header__user__function__sign-in
-        = link_to 'Signin', new_user_session_path
+        = link_to '一覧', users_path, class: 'header__user__function__sign-in__character'
       %li.header__user__function__sign-out
-        = link_to 'Signout', destroy_user_session_path, method: :delete
+        = link_to 'Signout', destroy_user_session_path, method: :delete, class: 'header__user__function__sign-out__character'
       %li.header__user__function__new
-        = link_to 'New', new_article_path
+        = link_to 'New', new_article_path, class: 'header__user__function__new__character'
 
 .main
-  .main__box
-    .main__box__topic
-      題名
-    .main__box__article
-      本文aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagfdsgggggggggggggggggggggggggsdgfgsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-    %ul.main__box__function
-      %li.main__box__function__show
-        show
-      %li.main__box__function__edit
-        edit
-      %li.main__box__function__destroy
-        destroy
-  .main__box
-    .main__box__topic
-      題名
-    .main__box__article
-      本文aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagfdsgggggggggggggggggggggggggsdgfgsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-    %ul.main__box__function
-      %li.main__box__function__show
-        show
-      %li.main__box__function__edit
-        edit
-      %li.main__box__function__destroy
-        destroy
+  - if @articles
+    - @articles.each do |a|
+      .main__box
+        .main__box__topic
+          = a.topic
+        .main__box__article
+          = a.body
+        %ul.main__box__function
+          %li.main__box__function__edit
+            = link_to 'edit', edit_article_path(a.id)
+          %li.main__box__function__destroy
+            = link_to 'destroy', "/articles/#{a.id}", method: :delete

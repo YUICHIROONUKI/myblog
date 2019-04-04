@@ -1,0 +1,12 @@
+.main
+  .main__box
+    = form_for @article do |f|
+      .main__box__topic
+        =f.text_field :topic, placeholder: '題名', class: 'main__box__topic__text-field'
+      .main__box__article
+        =f.text_area :body, placeholder: '内容', class: 'main__box__article__textarea'
+      %ul.main__box__function
+        %li.main__box__function__edit
+          = link_to '戻る', articles_path
+        %li.main__box__function__destroy
+          =f.submit '作成'
