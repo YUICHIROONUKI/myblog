@@ -3,7 +3,7 @@
 	background-color: #FFFFDD;
     width: 100vw;
     height: 100vh;
-    background-color: pink;
+    background-color: #fafad2;
     &__box{
     	display: flex;
     	height: 10vh;
@@ -24,7 +24,7 @@
             margin: auto;
     	}
     	&__username {
-    		color: white;
+    		color: red;
     		font-size: 20px;
             position: absolute;
             right: 0;
