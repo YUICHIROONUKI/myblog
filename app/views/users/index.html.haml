@@ -1,23 +1,29 @@
+= render partial: 'articles/flash'
 
 .header
   .header__user
     .header__user__name
       = current_user.name
     .header__user__logo
-      ブログ一覧
+      myblog
     %ul.header__user__function
       %li.header__user__function__sign-in
-        = link_to 'Signin', destroy_user_session_path, method: :delete, class: 'header__user__function__sign-in__character'
+        = link_to '一覧', articles_path, class: 'header__user__function__sign-in__character'
       %li.header__user__function__sign-out
         = link_to 'Signout', destroy_user_session_path, method: :delete, class: 'header__user__function__sign-out__character'
       %li.header__user__function__new
-        = link_to 'Mypage', articles_path, class: 'header__user__function__sign-in__character'
+        = link_to 'New', new_article_path, class: 'header__user__function__new__character'
 
-.blogs
-  - if @articles
-    - @articles.each do |article|
-      .blogs__box
-        = link_to article.topic, article_path(article.id), class: 'blogs__box__topic'
-        .blogs__box__username
-          = article.user.name + "さんの投稿"
-= paginate @articles
+.main
+  - if @articles.present?
+    - @articles.each do |a|
+      .main__box
+        .main__box__topic
+          = a.topic
+        .main__box__article
+          = a.body
+        %ul.main__box__function
+          %li.main__box__function__edit
+            = link_to 'edit', edit_article_path(a.id)
+          %li.main__box__function__destroy
+            = link_to 'destroy', "/articles/#{a.id}", method: :delete
